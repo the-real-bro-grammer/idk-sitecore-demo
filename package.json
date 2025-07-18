@@ -1,10 +1,10 @@
 {
-  "name": "nextjs-starter",
-  "description": "Application utilizing Sitecore JavaScript Services and Next.js",
+  "name": "idk-sitecore-demo",
+  "description": "My Demo Site for all Examples listed in IDKSitecore.com",
   "version": "0.1.0",
   "private": true,
   "config": {
-    "appName": "nextjs-starter",
+    "appName": "idk-sitecore-demo",
     "rootPlaceholders": [
       "jss-main"
     ],
@@ -19,17 +19,17 @@
     ]
   },
   "author": {
-    "name": "Sitecore Corporation",
-    "url": "https://jss.sitecore.com"
+    "name": "Robert Watson",
+    "url": "https://idksitecore.com"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sitecore/jss.git"
+    "url": "git+https://github.com/the-real-bro-grammer/idk-sitecore-demo"
   },
   "bugs": {
-    "url": "https://github.com/sitecore/jss/issues"
+    "url": "https://github.com/the-real-bro-grammer/idk-sitecore-demo/issues"
   },
-  "license": "Apache-2.0",
+  "license": "MIT",
   "dependencies": {
     "@sitecore-cloudsdk/core": "^0.5.1",
     "@sitecore-cloudsdk/events": "^0.5.1",
