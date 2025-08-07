@@ -19,12 +19,12 @@ interface ComponentProps {
 const RenderBody = (props: ComponentProps & { placeholderName: string }) => {
   const styles = `component two-column ${props?.params?.Styles ?? ''}`.trimEnd();
   const id = props.params.RenderingIdentifier;
-  const phKey = `${props.placeholderName}-two-column-${props?.params?.DynamicPlaceholderId}}`;
+  const phKey = `${props.placeholderName}-two-column-${props?.params?.DynamicPlaceholderId}`;
 
   return (
     <div className={styles} id={id ? id : undefined}>
       <div className="component-content">
-        <Text field={props.fields.Title} />
+        {props.fields?.Title && <Text field={props.fields.Title} />}
         <div className="placeholder-wrapper row">
           <div className="col-6">
             <Placeholder name={`column1-${phKey}`} rendering={props.rendering} />
