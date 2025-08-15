@@ -1,0 +1,17 @@
+fragment ItemDetails on Item {
+  title: field(name: "Title") {
+    value
+  }
+  facet: field(name: "Facet") {
+    jsonValue
+  }
+  matchAll: field(name: "Match All") {
+    value
+  }
+}
+
+query PageContextQuery($datasource: String!, $language: String!) {
+  datasource: item(path: $datasource, language: $language) {
+    ...ItemDetails
+  }
+}
