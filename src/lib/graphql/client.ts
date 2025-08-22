@@ -1,6 +1,15 @@
 import graphqlClientFactory from 'lib/graphql-client-factory';
+import { GraphQlSearchResponse } from 'src/types/graph-ql/search-response';
 import { SearchRequest } from 'src/types/search/search-request';
-import { itemListingSearchQuery } from './Generated';
+import { SearchResultsWrapper } from 'src/types/search/search-results-content-wrapper';
+import { itemListingSearchQuery, wildcardPageQuery } from './Generated';
+
+type WildcardSearchResults = {
+  name: string;
+  url: {
+    path: string;
+  };
+};
 
 export class GraphQLClient {
   private static graphQlClient = graphqlClientFactory();
@@ -20,5 +29,21 @@ export class GraphQLClient {
     });
 
     return response;
+  };
+
+  public static GetWildcardPage = async (
+    bucketId: string,
+    itemName: string
+  ): Promise<SearchResultsWrapper<WildcardSearchResults> | null> => {
+    if (!itemName || itemName.length <= 0) {
+      return null;
+    }
+
+    const response = (await GraphQLClient.graphQlClient.request(wildcardPageQuery, {
+      bucketId,
+      itemName,
+    })) as GraphQlSearchResponse<WildcardSearchResults>;
+
+    return new SearchResultsWrapper(response);
   };
 }

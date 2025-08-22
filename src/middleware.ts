@@ -1,5 +1,5 @@
-import type { NextRequest, NextFetchEvent } from 'next/server';
 import middleware from 'lib/middleware';
+import type { NextFetchEvent, NextRequest } from 'next/server';
 
 // eslint-disable-next-line
 export default async function (req: NextRequest, ev: NextFetchEvent) {
@@ -19,6 +19,6 @@ export const config = {
    */
   matcher: [
     '/',
-    '/((?!api/|_next/|feaas-render|healthz|sitecore/api/|-/|favicon.ico|sc_logo.svg).*)',
+    '/((?!api/|_next/|feaas-render|healthz|services/|sitecore/api/|-/|favicon.ico|sc_logo.svg).*)',
   ],
 };

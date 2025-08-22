@@ -1,0 +1,17 @@
+query ItemResolveQuery($bucketId: String!, $itemName: String!) {
+    searchResults: search(
+        where: {
+            AND: [
+                { name: "_path", value: $bucketId, operator: CONTAINS }
+                { name: "_name", value: $itemName, operator: EQ }
+            ]
+        }
+    ) {
+        results {
+            name
+            url {
+                path
+            }
+        }
+    }
+}
